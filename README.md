@@ -41,7 +41,7 @@ epias_pfc(start_date,end_date): Function that returns the PFC prices for a given
 
 
 
-#### Example
+#### Example 1
 ```python
 from seffaflik2 import epias_mcp
 
@@ -49,4 +49,14 @@ day_ahead_prices = epias_mcp("2024-01-15","2024-03-16")
 
 print(day_ahead_prices)
 ```
+
+#### Example 2
+```python
+import seffaflik2 as sf
+
+day_ahead_prices = sf.epias_mcp("2024-01-15","2024-03-16")
+
+print(day_ahead_prices)
+```
+
 
