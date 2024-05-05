@@ -16,6 +16,7 @@ setup(
     description=S_DESCRIPTION,
     long_description = description,
     long_description_content_type = "text/markdown",
+    url = "https://github.com/berkomeratay/seffaflik2",
     packages=find_packages(),
     install_requires=['requests', 'pandas', 'numpy'],
     keywords=['python', 'epias', 'seffaflik', 'epias transparency platform', 'transparency', 'epiaş şeffaflık platformu'],
