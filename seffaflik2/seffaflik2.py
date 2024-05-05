@@ -126,8 +126,8 @@ def epias_org(start_date,end_date):
     url = "https://seffaflik.epias.com.tr/electricity-service/v1/generation/data/organization-list"
 
     payload = json.dumps({
-      "endDate": ed+"T00:00:00+03:00",
-      "startDate": sd+"T00:00:00+03:00"
+      "endDate": ed,
+      "startDate": sd
     })
     headers = {
       'Content-Type': 'application/json'
@@ -429,3 +429,167 @@ def epias_pfc(start_date,end_date):
         return df
     else:
         return response.text
+    
+
+def epias_pi_offer(start_date,end_date):
+    
+    sd = date_converter(start_date)
+    ed = date_converter(end_date)
+
+    """
+    Function that turns the amount of price independent offers in day-ahead-market for a given interval
+    
+    """
+
+    url = "https://seffaflik.epias.com.tr/electricity-service/v1/markets/dam/data/price-independent-offer"
+
+    payload = json.dumps({
+      "endDate": ed,
+      "startDate": sd
+    })
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.post(url, headers=headers, data=payload)
+
+    if response.status_code == 200:
+
+        df = pd.json_normalize(response.json()['items'])
+
+        df['date'] = pd.to_datetime(df['date'])
+
+        return df
+    else:
+        return response.text
+    
+def epias_pi_bid(start_date,end_date):
+    
+    sd = date_converter(start_date)
+    ed = date_converter(end_date)
+
+    """
+    Function that turns the amount of price independent bids in day-ahead-market for a given interval
+    
+    """
+
+    url = "https://seffaflik.epias.com.tr/electricity-service/v1/markets/dam/data/price-independent-bid"
+
+    payload = json.dumps({
+      "endDate": ed,
+      "startDate": sd
+    })
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.post(url, headers=headers, data=payload)
+
+    if response.status_code == 200:
+
+        df = pd.json_normalize(response.json()['items'])
+
+        df['date'] = pd.to_datetime(df['date'])
+
+        return df
+    else:
+        return response.text
+    
+def epias_spot(start_date,end_date):
+    
+    sd = date_converter(start_date)
+    ed = date_converter(end_date)
+
+    """
+    Function that turns the amount of matched amount in day-ahead-market for a given interval
+    
+    """
+
+    url = "https://seffaflik.epias.com.tr/electricity-service/v1/markets/dam/data/clearing-quantity"
+
+    payload = json.dumps({
+      "endDate": ed,
+      "startDate": sd
+    })
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.post(url, headers=headers, data=payload)
+
+    if response.status_code == 200:
+
+        df = pd.json_normalize(response.json()['items'])
+
+        df['date'] = pd.to_datetime(df['date'])
+
+        return df
+    else:
+        return response.text
+    
+def epias_ba_offers(start_date,end_date):
+    
+    sd = date_converter(start_date)
+    ed = date_converter(end_date)
+
+    """
+    Function that turns the amount of block offers (matched and non-matched) of day-ahead-market for a given interval
+    
+    """
+
+    url = "https://seffaflik.epias.com.tr/electricity-service/v1/markets/dam/data/amount-of-block-selling"
+
+    payload = json.dumps({
+      "endDate": ed,
+      "startDate": sd
+    })
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.post(url, headers=headers, data=payload)
+
+    if response.status_code == 200:
+
+        df = pd.json_normalize(response.json()['items'])
+
+        df['date'] = pd.to_datetime(df['date'])
+
+        return df
+    else:
+        return response.text
+    
+def epias_ba_bids(start_date,end_date):
+    
+    sd = date_converter(start_date)
+    ed = date_converter(end_date)
+
+    """
+    Function that turns the amount of block bids (matched and non-matched) of day-ahead-market for a given interval
+    
+    """
+
+    url = "https://seffaflik.epias.com.tr/electricity-service/v1/markets/dam/data/amount-of-block-buying"
+
+    payload = json.dumps({
+      "endDate": ed,
+      "startDate": sd
+    })
+    headers = {
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.post(url, headers=headers, data=payload)
+
+    if response.status_code == 200:
+
+        df = pd.json_normalize(response.json()['items'])
+
+        df['date'] = pd.to_datetime(df['date'])
+
+        return df
+    else:
+        return response.text
+  
+
+  

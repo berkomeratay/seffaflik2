@@ -12,8 +12,18 @@ All the functions returns a pandas dataframe.
 
 ## Currently few selected datasets are available, which are:
 
-
+### Day-ahead-market
 epias_mcp(start_date,end_date): Function that returns the MCP for a given interval
+
+epias_pi_offer(start_date,end_date):  Function that turns the amount of price independent offers in day-ahead-market for a given interval
+
+epias_pi_bid(start_date,end_date):  Function that turns the amount of price independent bids in day-ahead-market for a given interval
+
+epias_spot(start_date,end_date): Function that turns the amount of matched amount in day-ahead-market for a given interval
+
+epias_ba(start_date,end_date):  Function that turns the amount of block offers (matched and non-matched) of day-ahead-market for a given interval
+
+### Generation
 
 epias_kgup(start_date,end_date): Function that returns the DPP's (KGUP) based on resources for a given interval
 
@@ -23,11 +33,17 @@ epias_org(start_date,end_date): Function that returns the organizations for a gi
 
 epias_uevcb(start_date,end_date,o_id): Function that returns the UEVCB data for a given interval (o_id: Organization ID)
 
+### Consumption
+
 epias_demand(start_date,end_date): Function that returns the real time electricity consumption for a given interval
 
-epias_idmp(start_date,end_date): Function that returns the intraday markey prices for a given interval
+### Intraday market
+
+epias_idmp(start_date,end_date): Function that returns the intraday weighted average prices for a given interval
 
 epias_idma(start_date,end_date): Function that returns the trade amount at intraday market for a given interval 
+
+### Balancing Power Market
 
 epias_smp(start_date,end_date): Function that returns the System Marginal Price for a given interval 
 
@@ -35,9 +51,13 @@ epias_yal(start_date,end_date): Function that returns the amount of load orders 
 
 epias_yat(start_date,end_date): Function that returns the amount of deload orders (YAT) for a given interval
 
+### Ancillary Services
+
 epias_sfc(start_date,end_date): Function that returns the SFC prices for a given interval
 
 epias_pfc(start_date,end_date): Function that returns the PFC prices for a given interval
+
+
 
 
 
