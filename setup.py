@@ -4,7 +4,7 @@ with open("README.md","r") as f:
     description = f.read()
 
 
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 S_DESCRIPTION = 'EPIAS Transparency Platform 2.0 Unofficial Python Library'
 
 # Setting up

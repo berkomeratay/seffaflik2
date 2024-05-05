@@ -21,7 +21,10 @@ epias_pi_bid(start_date,end_date):  Function that turns the amount of price inde
 
 epias_spot(start_date,end_date): Function that turns the amount of matched amount in day-ahead-market for a given interval
 
-epias_ba(start_date,end_date):  Function that turns the amount of block offers (matched and non-matched) of day-ahead-market for a given interval
+epias_ba_offers(start_date,end_date):  Function that turns the amount of block offers (matched and non-matched) of day-ahead-market for a given interval
+
+epias_ba_bids(start_date,end_date):  Function that turns the amount of block bids (matched and non-matched) of day-ahead-market for a given interval
+
 
 ### Generation
 
