@@ -8,20 +8,26 @@ def date_converter(date_string):
     new_string = date_string+"T00:00:00+03:00"
     return new_string
 
-def epias_tgt(e_mail,psw):
+def epias_tgt(email: str, password: str) -> str:
+    url = "https://giris.epias.com.tr/cas/v1/tickets"
 
-    url = f"https://giris.epias.com.tr/cas/v1/tickets?username={e_mail}&password={psw}"
+    
+    payload = {
+        "username": email,
+        "password": password
+    }
 
     headers = {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept':"text/plain"
-        
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "text/plain"
     }
-    global response
-    response = requests.request("POST", url, headers=headers,timeout=30)
+
+    response = requests.post(url, headers=headers, data=payload)
 
     if response.status_code == 201:
-        return response.text
+        return response.text.strip()
+    else:
+        raise Exception(f"Authentication failed: {response.status_code} - {response.text}")
 
 def epias_mcp(start_date,end_date,tgt,e_mail,psw):
     
